@@ -2,7 +2,14 @@ import Star from './star';
 import util from './util';
 import Character from './character';
 import InputHandler from './input';
-import {detectCollision} from './collision';
+import { detectCollision } from './collision';
+
+const GAMESTATE = {
+  PAUSED: 0,
+  RUNNING: 1,
+  MENU: 2,
+  OVER: 3
+};
 
 export default class Game {
   constructor(gameWidth, gameHeight, c) {
@@ -16,6 +23,7 @@ export default class Game {
     this.character = new Character(this);
     this.ticker = 0;
     this.spawn = 100;
+    this.gameState = 2;
   }
 
   init() {
@@ -26,10 +34,28 @@ export default class Game {
       const radius = Math.random() * 3;
       this.backgroundStars.push(new Star(this, x, y, radius, "white"))
     }
+    // draw the background of the game
+    const backgroundGradient = this.c.createLinearGradient(0, 0, 0, this.gameHeight);
+    backgroundGradient.addColorStop(0, '#171e26');
+    backgroundGradient.addColorStop(1, '#3f586b');
+    this.c.fillStyle = backgroundGradient;
+    this.c.fillRect(0, 0, this.gameWidth, this.gameHeight) 
+
+    this.backgroundStars.forEach(star => {
+      star.draw();
+    });
+
+    this.createMountainRange(1, this.gameHeight - 350, '#384551')
+    this.createMountainRange(2, this.gameHeight - 500, '#2B3843')
+    this.createMountainRange(3, this.gameHeight - 550, '#26333E')
+
+    // create a ground floor for character
+    this.c.fillStyle = "#182028";
+    this.c.fillRect(0, this.gameHeight - this.groundHeight, this.gameWidth, this.groundHeight);
+
+    // create the character
+    this.character.draw();
   };
-
-  
-
 
   createMountainRange(mtnAmount, height, color) {
     for (let i = 0; i < mtnAmount; i++) {
@@ -46,6 +72,8 @@ export default class Game {
   }
 
   animate() {
+    // if (this.gameState === GAMESTATE.PAUSED) {return};
+    this.gameState = GAMESTATE.RUNNING;
     const backgroundGradient = this.c.createLinearGradient(0, 0, 0, this.gameHeight);
     backgroundGradient.addColorStop(0, '#171e26');
     backgroundGradient.addColorStop(1, '#3f586b');
@@ -102,6 +130,15 @@ export default class Game {
     }
 
     this.character.update();
-    new InputHandler(this.character);
+    new InputHandler(this);
   };
+
+  togglePause() {
+    console.log("changing");
+    if (this.gameState === GAMESTATE.PAUSED) {
+      this.gameState = GAMESTATE.RUNNING;
+    } else {
+      this.gameState = GAMESTATE.PAUSED;
+    }
+  }
 }

@@ -1,23 +1,26 @@
 export default class InputHandler {
-  constructor(character) {
+  constructor(game) {
     document.addEventListener("keydown", event => {
       switch(event.keyCode) {
         case 37:
-          character.moveLeft();
+          game.character.moveLeft();
           break;
         case 39:
-          character.moveRight();
+          game.character.moveRight();
           break;
+        // case 16:
+        //   game.togglePause();
+        //   break;
       }
     });
 
     document.addEventListener("keyup", event => {
       switch(event.keyCode) {
         case 37:
-          character.stop();
+          game.character.stop();
           break;
         case 39:
-          character.stop()
+          game.character.stop()
           break;
       }
     });
