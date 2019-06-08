@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"detectCollision\", function() { return detectCollision; });\nfunction detectCollision(star, character) {\n  let bottomStar = star.y + star.radius;\n  let characterTop = character.y;\n  let characterLeft = character.x;\n  let characterRight = character.x + character.width;\n\n  if (\n      bottomStar >= characterTop &&\n      star.x >= characterLeft &&\n      star.x + star.radius <= characterRight\n    ) {\n      character.lives -= 1\n      return true\n    }\n};\n\n\n//# sourceURL=webpack:///./src/collision.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"detectCollision\", function() { return detectCollision; });\nfunction detectCollision(star, character) {\n  let bottomStar = star.y + star.radius;\n  let characterTop = character.y;\n  let characterLeft = character.x;\n  let characterRight = character.x + character.width;\n\n  if (\n      bottomStar >= characterTop &&\n      star.x >= characterLeft &&\n      star.x + star.radius <= characterRight\n    ) {\n      character.lives -= 1\n      // console.log(character.lives)\n      return true\n    }\n};\n\n\n//# sourceURL=webpack:///./src/collision.js?");
 
 /***/ }),
 
@@ -142,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gam
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return InputHandler; });\nclass InputHandler {\n  constructor(game) {\n    document.addEventListener(\"keydown\", event => {\n      switch(event.keyCode) {\n        case 37:\n          game.character.moveLeft();\n          break;\n        case 39:\n          game.character.moveRight();\n          break;\n        case 16:\n          game.togglePause();\n          break;\n      }\n    });\n\n    document.addEventListener(\"keyup\", event => {\n      switch(event.keyCode) {\n        case 37:\n          game.character.stop();\n          break;\n        case 39:\n          game.character.stop()\n          break;\n      }\n    });\n  }\n}\n\n//# sourceURL=webpack:///./src/input.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return InputHandler; });\nclass InputHandler {\n  constructor(game) {\n    document.addEventListener(\"keydown\", event => {\n      switch(event.keyCode) {\n        case 37:\n          game.character.moveLeft();\n          break;\n        case 39:\n          game.character.moveRight();\n          break;\n        // case 16:\n        //   game.togglePause();\n        //   break;\n      }\n    });\n\n    document.addEventListener(\"keyup\", event => {\n      switch(event.keyCode) {\n        case 37:\n          game.character.stop();\n          break;\n        case 39:\n          game.character.stop()\n          break;\n      }\n    });\n  }\n}\n\n//# sourceURL=webpack:///./src/input.js?");
 
 /***/ }),
 
