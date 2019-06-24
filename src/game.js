@@ -136,7 +136,6 @@ export default class Game {
 
   togglePause() {
     let pauseWindow = document.getElementById("paused");
-    
     if (this.gameState === GAMESTATE.PAUSED) {
       this.gameState = GAMESTATE.RUNNING;
       pauseWindow.style.display = "none";
