@@ -8,9 +8,9 @@ export default class InputHandler {
         case 39:
           game.character.moveRight();
           break;
-        // case 16:
-        //   game.togglePause();
-        //   break;
+        case 16:
+          game.togglePause();
+          break;
       }
     });
 

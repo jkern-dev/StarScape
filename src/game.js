@@ -65,14 +65,14 @@ export default class Game {
       this.c.lineTo(i * mountainWidth + mountainWidth + 475, this.gameHeight);
       this.c.lineTo(i * mountainWidth + mountainWidth / 2, this.gameHeight - height);
       this.c.lineTo(i * mountainWidth - 575, this.gameHeight);
-      this.c.fillStyle = color;7
+      this.c.fillStyle = color;
       this.c.fill();
       this.c.closePath();
     }
   }
 
   animate() {
-    // if (this.gameState === GAMESTATE.PAUSED) {return};
+    if (this.gameState === GAMESTATE.PAUSED) {return};
     this.gameState = GAMESTATE.RUNNING;
     const backgroundGradient = this.c.createLinearGradient(0, 0, 0, this.gameHeight);
     backgroundGradient.addColorStop(0, '#171e26');
@@ -130,15 +130,29 @@ export default class Game {
     }
 
     this.character.update();
+    this.gameOver();
     new InputHandler(this);
   };
 
   togglePause() {
-    console.log("changing");
+    let pauseWindow = document.getElementById("paused");
+    
     if (this.gameState === GAMESTATE.PAUSED) {
       this.gameState = GAMESTATE.RUNNING;
+      pauseWindow.style.display = "none";
     } else {
       this.gameState = GAMESTATE.PAUSED;
+      pauseWindow.style.display = "flex";
+    }
+  }
+
+  gameOver() {
+    let startText = document.getElementById("start");
+    let gameOver = document.getElementById("over");
+    if (this.character.lives === 0) {
+      this.gameState = GAMESTATE.PAUSED;
+      gameOver.style.display = "flex";
+      startText.style.display = "none";
     }
   }
 }

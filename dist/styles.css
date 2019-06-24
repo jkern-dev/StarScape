@@ -2,5 +2,21 @@ body {
   text-align:center;
   background: black;
   color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+#paused {
+  background-color: black;
+  color: white;
+  display: none;
+}
+
+#over {
+  background-color: black;
+  color: white;
+  display: none;
 }
 

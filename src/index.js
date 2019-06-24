@@ -36,5 +36,4 @@ document.addEventListener("DOMContentLoaded", function() {
   function start() {
     requestAnimationFrame(gameLoop);
   }
-  
 })
