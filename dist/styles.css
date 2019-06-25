@@ -30,15 +30,14 @@ body {
 
 .replay {
   border-radius: 25px;
-  /* height: 30px; */
   padding: 15px;
-  background-color: blue;
+  background-color: purple;
   color: white;
 }
 
 .replay:hover {
   background-color: white;
-  color: blue;
+  color: purple;
 }
 
 .info {
