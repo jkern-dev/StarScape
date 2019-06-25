@@ -133,6 +133,7 @@ export default class Game {
     // place a display of lives remaining
     this.c.textAlign = "end";
     // this.c.font = "18px Bangers";
+    this.c.font = "20px Codystar";
     this.c.textAlign = "end";
     this.c.fillStyle = "#cccccc";
     this.c.fillText(`Lives Remaining:  ${this.character.lives}`, 685, 25);
