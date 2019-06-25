@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./dist/styles.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Codystar|Oswald&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>StarScape</title>
   <script src="./dist/main.js"></script>
 </head>
@@ -24,8 +26,16 @@
     <button 
       value="Refresh Page" 
       onClick="window.location.reload();"
-      className = "replay"
+      class = "replay"
     >Game Over! Play Again!</button>
+  </div>
+  <div id="over-image">
+    <img src="alien.png">
+  </div>
+  <div id="info">
+    <a href='https://github.com/jkern-dev/StarScape' target="_blank"><i class="fab fa-github big-icon"
+        aria-hidden="true"></i></a>
+    <a href='https://www.linkedin.com/in/jkern620/' target="_blank"><i class="fab fa-linkedin-in big-icon"></i></a>
   </div>
   <canvas id="game-canvas" width=700 height=700></canvas>
 </body>

@@ -158,14 +158,20 @@ export default class Game {
   gameOver() {
     let startText = document.getElementById("start");
     let gameOver = document.getElementById("over");
+    let overImage = document.getElementById("over-image");
 
     if (this.gameState === GAMESTATE.RUNNING) {
       startText.style.display = "none";
     }
     if (this.character.lives === 0) {
       this.gameState = GAMESTATE.PAUSED;
+      const t = document.createTextNode(`Your final score: ${this.ticker}`);
+      const score = document.createElement("P");
+      score.appendChild(t);
+      gameOver.appendChild(score);
       gameOver.style.display = "flex";
-      gameOver.style.flexDirection = "row";
+      gameOver.style.flexDirection = "column";
+      overImage.style.display = "flex";
       startText.style.display = "none";
     }
   }
