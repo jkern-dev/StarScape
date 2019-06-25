@@ -136,6 +136,7 @@ export default class Game {
     this.c.textAlign = "end";
     this.c.fillStyle = "#cccccc";
     this.c.fillText(`Lives Remaining:  ${this.character.lives}`, 685, 25);
+    this.c.fillText(`Score: ${this.ticker}`, 685, 50);
 
     this.character.update();
     this.gameOver();
