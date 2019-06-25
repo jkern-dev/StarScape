@@ -53,6 +53,7 @@ export default class Game {
     this.c.fillStyle = "#182028";
     this.c.fillRect(0, this.gameHeight - this.groundHeight, this.gameWidth, this.groundHeight);
 
+
     // create the character
     this.character.draw();
   };
@@ -128,6 +129,13 @@ export default class Game {
       this.stars.push(new Star(this, x, -100, 20, '#E3EAEF'))
       this.spawn = util.randomIntFromRange(50,300);
     }
+
+    // place a display of lives remaining
+    this.c.textAlign = "end";
+    // this.c.font = "18px Bangers";
+    this.c.textAlign = "end";
+    this.c.fillStyle = "#cccccc";
+    this.c.fillText(`Lives Remaining:  ${this.character.lives}`, 685, 25);
 
     this.character.update();
     this.gameOver();
