@@ -20,7 +20,11 @@
     <h1>Game Paused!</h1>
   </div>
   <div id="over">
-    <h1>Game Over! Refresh to play again!</h1>
+    <button 
+      value="Refresh Page" 
+      onClick="window.location.reload();"
+      className = "replay"
+    >Game Over! Play Again!</button>
   </div>
   <canvas id="game-canvas" width=700 height=700></canvas>
 </body>

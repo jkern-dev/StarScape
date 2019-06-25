@@ -157,9 +157,14 @@ export default class Game {
   gameOver() {
     let startText = document.getElementById("start");
     let gameOver = document.getElementById("over");
+
+    if (this.gameState === GAMESTATE.RUNNING) {
+      startText.style.display = "none";
+    }
     if (this.character.lives === 0) {
       this.gameState = GAMESTATE.PAUSED;
       gameOver.style.display = "flex";
+      gameOver.style.flexDirection = "row";
       startText.style.display = "none";
     }
   }
