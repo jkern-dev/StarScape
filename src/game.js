@@ -165,7 +165,7 @@ export default class Game {
     }
     if (this.character.lives === 0) {
       this.gameState = GAMESTATE.PAUSED;
-      const t = document.createTextNode(`Your final score: ${this.ticker}`);
+      const t = document.createTextNode(`final score: ${this.ticker}`);
       const score = document.createElement("P");
       score.appendChild(t);
       gameOver.appendChild(score);
