@@ -5,7 +5,7 @@ export default class Character {
     this.x = game.gameWidth / 2;
     this.vel = 0;
     this.maxVel = 15;
-    this.height = 60;
+    this.height = 90;
     this.width = 80;
     this.lives = 3;
     this.y = game.gameWidth - game.groundHeight - this.height;
