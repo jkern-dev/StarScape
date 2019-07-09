@@ -10,7 +10,6 @@ export function detectCollision(star, character) {
       star.x + star.radius <= characterRight
     ) {
       character.lives -= 1
-      // console.log(character.lives)
       return true
     }
 };

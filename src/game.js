@@ -127,12 +127,11 @@ export default class Game {
       // make sure always generating star in range of canvas width
       const x = Math.max(radius, Math.random() * this.gameWidth - radius);
       this.stars.push(new Star(this, x, -100, 20, '#E3EAEF'))
-      this.spawn = util.randomIntFromRange(50,300);
+      this.spawn = util.randomIntFromRange(50,200);
     }
 
     // place a display of lives remaining
     this.c.textAlign = "end";
-    // this.c.font = "18px Bangers";
     this.c.font = "20px Codystar";
     this.c.textAlign = "end";
     this.c.fillStyle = "#cccccc";
