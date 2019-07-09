@@ -1,5 +1,13 @@
 ## [StarScape](https://jkern-dev.github.io/StarScape/)
 
+## Install
+``` bash
+npm install
+npm run webpack
+```
+
+Place the index.html file path into your browser
+
 * [StarScape](https://jkern-dev.github.io/StarScape/) is a game built using HTML Canvas and Javascript. While stars fall from above, you must navigate your alien to avoid being hit. Be careful as the stars bounce and are still dangerous until they shatter entirely! 
 
 ![](gameplay.gif)
